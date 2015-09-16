@@ -1,30 +1,28 @@
 machine:
+# services:
+#   - docker
   pre:
     - |
       sudo curl -L -o /usr/bin/docker 'http://s3-external-1.amazonaws.com/circle-downloads/docker-1.8.1-circleci'
       sudo chmod 0755 /usr/bin/docker
       sudo service docker start
-# services:
-#   - docker
 
 dependencies:
-  cache_directories:
-    - "~/docker"
   override:
     - docker version
     - docker info
+    - bash install.sh
     - curl -Ls http://azk.io/install.sh | bash
     # - sudo apt-get update
     - sudo apt-get install libnss-resolver
     - git clone https://github.com/azukiapp/azk.git
-    - pwd
     - (cd ~/docker-elasticsearch/azk && make)
-    - ~/docker-elasticsearch/azk/bin/azk agent start
 
 test:
   override:
-    - bin/azk agent start
-    - bin/azk version
+    - (cd ~/docker-elasticsearch/azk && ./bin/azk agent start --no-daemon):
+      background: true
+    - (cd ~/docker-elasticsearch/azk && ./bin/azk version)
     # - docker run -d -p 9200:9200 circleci/elasticsearch; sleep 10
 
 # deployment:
