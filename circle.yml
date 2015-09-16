@@ -14,11 +14,12 @@ dependencies:
     - docker version
     - docker info
     - curl -Ls http://azk.io/install.sh | bash
-    - sudo apt-get update
+    # - sudo apt-get update
     - sudo apt-get install libnss-resolver
     - git clone https://github.com/azukiapp/azk.git
-    - cd azk
-    - make
+    - pwd
+    # - cd azk
+    # - make
 
 test:
   override:
