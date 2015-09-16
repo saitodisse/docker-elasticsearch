@@ -8,10 +8,10 @@ dependencies:
   override:
     - docker info
     - curl -Ls http://azk.io/install.sh | bash
-    - azk agent start
 
 test:
   override:
+    - azk agent start
     - azk version
     # - docker run -d -p 9200:9200 circleci/elasticsearch; sleep 10
 
