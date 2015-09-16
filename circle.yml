@@ -14,11 +14,16 @@ dependencies:
     - docker version
     - docker info
     - curl -Ls http://azk.io/install.sh | bash
+    - sudo apt-get update
+    - sudo apt-get install libnss-resolver
+    - git clone https://github.com/azukiapp/azk.git
+    - cd azk
+    - make
 
 test:
   override:
-    - azk agent start
-    - azk version
+    - bin/azk agent start
+    - bin/azk version
     # - docker run -d -p 9200:9200 circleci/elasticsearch; sleep 10
 
 # deployment:
