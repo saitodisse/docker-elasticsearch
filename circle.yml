@@ -18,8 +18,8 @@ dependencies:
     - sudo apt-get install libnss-resolver
     - git clone https://github.com/azukiapp/azk.git
     - pwd
-    # - cd azk
-    # - make
+    - (cd ~/docker-elasticsearch/azk && make)
+    - ~/docker-elasticsearch/azk/bin/azk agent start
 
 test:
   override:
