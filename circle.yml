@@ -20,8 +20,7 @@ dependencies:
 
 test:
   override:
-    - (cd ~/docker-elasticsearch/azk && ./bin/azk agent start --no-daemon):
-      background: true
+    - (cd ~/docker-elasticsearch/azk && ./bin/azk agent start --quiet)
     - (cd ~/docker-elasticsearch/azk && ./bin/azk version)
     # - docker run -d -p 9200:9200 circleci/elasticsearch; sleep 10
 
