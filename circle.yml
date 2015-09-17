@@ -23,7 +23,7 @@ test:
     - ~/docker-elasticsearch/azk/bin/azk agent start --no-daemon:
         background: true
     - ~/docker-elasticsearch/azk/bin/azk version | echo
-    - ~/docker-elasticsearch/azk/bin/azk start -Rvvo https://github.com/run-project/shout --git-ref azkfile | echo
+    - ~/docker-elasticsearch/azk/bin/azk start -Rvvo --no-remove https://github.com/run-project/shout --git-ref azkfile | echo
     # - docker run -d -p 9200:9200 circleci/elasticsearch; sleep 10
 
 # deployment:
